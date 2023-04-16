@@ -14,13 +14,15 @@ protected:
         const uint8_t &inLibIndex
     ) : gpio_pin(inPhyIndex, inLibIndex) {};
     gpio_pin_wiringPi &operator=(const gpio_pin_wiringPi &&rhv){
+        phyIndex = rhv.phyIndex;
+        libIndex = rhv.libIndex;
         return *this;
     };
 public:
-    void set_pin_mode(const enumPinMode inPinMode);
-    void pull_up_dn_control(const enumPUDControl inPUDControl);
-    void digital_write(const bool inValue);
-    bool digital_read();
+    virtual void set_pin_mode(const enumPinMode inPinMode);
+    virtual void pull_up_dn_control(const enumPUDControl inPUDControl);
+    virtual void digital_write(const bool inValue);
+    virtual bool digital_read();
 
     ~gpio_pin_wiringPi() {};
     friend class OrangePiZero_WiringPi_PinMapping;

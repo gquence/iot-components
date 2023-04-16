@@ -11,12 +11,6 @@ gpio_pin::gpio_pin(
 ) :  phyIndex(inPhyIndex), libIndex(inLibIndex)
 {}
 
-gpio_pin &gpio_pin::operator=(const gpio_pin &&rhv)
-{
-    phyIndex = rhv.phyIndex;
-    libIndex = rhv.libIndex;
-    return *this;
-}
 
 void gpio_pin::use(const uintptr_t &inMasterObjectId) {
     static uintptr_t null_ptr = 0;

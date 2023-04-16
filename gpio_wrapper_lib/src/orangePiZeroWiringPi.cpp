@@ -2,6 +2,7 @@
 
 #include <wiringPi.h>
 #include <stdexcept>
+#include <iostream>
 
 OrangePiZero_WiringPi_PinMapping *OrangePiZero_WiringPi_PinMapping::instance = nullptr;
 
@@ -10,18 +11,19 @@ OrangePiZero_WiringPi_PinMapping::OrangePiZero_WiringPi_PinMapping()
     if (wiringPiSetup() == -1) {
       throw std::runtime_error("Error when wiringPiSetup");
     }
-    _PA10 = gpio_pin_wiringPi(26, 11);
-    _PA13 = gpio_pin_wiringPi(24, 10);    _PA14 = gpio_pin_wiringPi(23, 14); 
-    _PA02 = gpio_pin_wiringPi(22, 6);     _PA16 = gpio_pin_wiringPi(21, 13); 
-                                           _PA15 = gpio_pin_wiringPi(19, 12);
-    _PA18 = gpio_pin_wiringPi(18, 5);
-    _PA19 = gpio_pin_wiringPi(16, 4);     _PA03 = gpio_pin_wiringPi(15, 3); 
-                                           _PA00 = gpio_pin_wiringPi(13, 2);
-    _PA07 = gpio_pin_wiringPi(12, 1);     _PA01 = gpio_pin_wiringPi(11, 0); 
-    _PG07 = gpio_pin_wiringPi(10, 16);
-    _PG06 = gpio_pin_wiringPi(8, 15);     _PA06 = gpio_pin_wiringPi(7, 7); 
-                                           _PA11 = gpio_pin_wiringPi(5, 9);
-                                           _PA12 = gpio_pin_wiringPi(3, 8);
+    std::cout << "wiringPi for OrangePi inited" << std::endl;
+    _PA10 = gpio_pin_wiringPi(26, 16);
+    _PA13 = gpio_pin_wiringPi(24, 15);     _PA14 = gpio_pin_wiringPi(23, 14); 
+    _PA02 = gpio_pin_wiringPi(22, 13);     _PA16 = gpio_pin_wiringPi(21, 12); 
+                                           _PA15 = gpio_pin_wiringPi(19, 11);
+    _PA18 = gpio_pin_wiringPi(18, 10);
+    _PA19 = gpio_pin_wiringPi(16, 9);      _PA03 = gpio_pin_wiringPi(15, 8); 
+                                           _PA00 = gpio_pin_wiringPi(13, 7);
+    _PA07 = gpio_pin_wiringPi(12, 6);      _PA01 = gpio_pin_wiringPi(11, 5); 
+    _PG07 = gpio_pin_wiringPi(10, 4);
+    _PG06 = gpio_pin_wiringPi(8, 3);       _PA06 = gpio_pin_wiringPi(7, 2); 
+                                           _PA11 = gpio_pin_wiringPi(5, 1);
+                                           _PA12 = gpio_pin_wiringPi(3, 0);
 }
 
 OrangePiZero_WiringPi_PinMapping &OrangePiZero_WiringPi_PinMapping::get() {

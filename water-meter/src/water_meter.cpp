@@ -74,6 +74,7 @@ void impulse_water_meter::initPeriodicHandler()
 void impulse_water_meter::updateCurrentMeterValue()
 {
     bool new_signal_status = Input_Pin->digital_read();
+
     if (m_current_signal_status != new_signal_status) {
         if (new_signal_status) {
             current_liter_amount += 10;
